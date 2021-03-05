@@ -1,0 +1,8 @@
+*pem
+# .tfstate files
+*.tfstate
+*.tfstate.*
+**/*.hcl
+**/*.exe
+**/node_modules/
+**/dist

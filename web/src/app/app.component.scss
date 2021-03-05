@@ -1,0 +1,28 @@
+.mountains {
+    background-image: url('./../assets/smokey_mountains.jpg');
+    height: 30rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+.header {
+    font-size: 2rem;
+}
+.favicon {
+    height: 15rem;
+    width: 15rem;
+}
+
+.half-width {
+    width: 50%;
+}
+
+mat-form-field {
+    width: 20rem;
+}
+
+textarea {
+    height: 5rem;
+}
