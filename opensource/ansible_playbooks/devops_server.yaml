@@ -2,5 +2,5 @@
   tasks:
   - name: Creating an empty file
     file:
-      path: "/your path"
+      path: "/foo.txt"
       state: touch
