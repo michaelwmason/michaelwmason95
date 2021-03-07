@@ -6,3 +6,5 @@ sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
 sudo apt install git-all -y
 ansible-galaxy collection install amazon.aws
+sudo apt install python3-pip -yes
+ pip3 install boto3
