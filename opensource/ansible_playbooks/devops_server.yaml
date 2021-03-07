@@ -1,4 +1,4 @@
-- hosts: devops_server_inventory.yaml
+- hosts: devops_server_inventory_aws_ec2.yaml
   tasks:
   - name: Creating an empty file
     file:
