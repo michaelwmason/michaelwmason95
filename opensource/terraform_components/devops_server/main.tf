@@ -16,6 +16,15 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "terraform_remote_state" "devops_server_instance_profile" {
+   backend = "s3"
+  config = {
+    bucket = "michaelwmason-terraform"
+    key = "devops_server_role"
+    region = "us-east-1"
+  }
+}
+
 data "http" "my_public_ip" {
   url = "https://ifconfig.co/json"
   request_headers = {
@@ -63,6 +72,7 @@ resource "aws_instance" "devops_server" {
   tags = {
     Name = "DevOpsServer"
   }
+  iam_instance_profile = data.terraform_remote_state.devops_server_instance_profile.outputs.instance_profile_arn
   security_groups = [aws_security_group.deny_all.name]
   user_data       = data.template_file.init.rendered
 }
