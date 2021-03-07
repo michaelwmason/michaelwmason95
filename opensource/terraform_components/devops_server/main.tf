@@ -36,6 +36,7 @@ resource "aws_security_group" "deny_all" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
+    self = true
   }
 
   egress {

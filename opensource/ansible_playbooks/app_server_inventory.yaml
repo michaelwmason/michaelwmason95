@@ -1,0 +1,7 @@
+plugin: aws_ec2
+boto_profile: aws_profile
+regions:
+  - us-east-1
+  - us-east-2
+filters:
+  tag:Name: AppServer
