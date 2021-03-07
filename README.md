@@ -1,0 +1,1 @@
+ansible-playbook devops_server.yaml --inventory devops_server_inventory_aws_ec2.yaml --private-key=~/dev/michaelwmason95/opensource/ansible_playbooks/ansible_server.pem

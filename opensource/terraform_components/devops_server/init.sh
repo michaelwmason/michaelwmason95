@@ -9,6 +9,5 @@ sudo apt install python3-pip -yes
 pip3 install boto3
 ansible-galaxy collection install amazon.aws
 ansible-galaxy collection install community.aws
-# Make aws profile file
-mkdir ~/.aws
-touch ~/.aws/config
+echo "Git credentials need to be added manually"
+echo "SSH Key needs to be added manually for ansible use"
