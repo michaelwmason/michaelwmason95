@@ -31,13 +31,20 @@ data "terraform_remote_state" "devops_server_sg" {
   backend = "s3"
   config = {
     bucket = "michaelwmason-terraform"
-    key = "devops_server"
+    key    = "devops_server"
     region = "us-east-1"
   }
 }
 
 resource "aws_security_group" "app_server" {
-  name        = "app_server"
+  name = "app_server"
+
+  ingress {
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    security_groups = [data.terraform_remote_state.devops_server_sg.outputs.sg_id]
+  }
 
   ingress {
     from_port   = 22
@@ -47,10 +54,31 @@ resource "aws_security_group" "app_server" {
   }
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
     security_groups = [data.terraform_remote_state.devops_server_sg.outputs.sg_id]
+  }
+
+  ingress {
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
+  }
+
+  ingress {
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    security_groups = [data.terraform_remote_state.devops_server_sg.outputs.sg_id]
+  }
+
+  ingress {
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
   }
 
   egress {
