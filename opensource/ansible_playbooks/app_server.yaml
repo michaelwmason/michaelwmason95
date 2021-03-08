@@ -4,5 +4,5 @@
     apt:
       name: apache2
       state: present
-      become: yes
-      become_user: ubuntu
+    become: yes
+    become_user: ubuntu
