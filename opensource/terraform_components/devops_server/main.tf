@@ -36,13 +36,22 @@ locals {
   ifconfig_co_json = jsondecode(data.http.my_public_ip.body)
 }
 
-resource "aws_security_group" "deny_all" {
-  name        = "deny_all"
+resource "aws_security_group" "devops_server" {
+  name        = "devops_server"
   description = "Deny All"
 
   ingress {
     from_port   = 22
     to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
+    self = true
+  }
+
+   ingress {
+     description = "GO CD dashboard"
+    from_port   = 8153
+    to_port     = 8153
     protocol    = "tcp"
     cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
     self = true
@@ -56,7 +65,7 @@ resource "aws_security_group" "deny_all" {
   }
 
   tags = {
-    Name = "Deny All"
+    Name = "DevOpsServer"
   }
 }
 
@@ -72,8 +81,8 @@ resource "aws_instance" "devops_server" {
   tags = {
     Name = "DevOpsServer"
   }
-  iam_instance_profile = data.terraform_remote_state.devops_server_instance_profile.outputs.instance_profile_arn
-  security_groups = [aws_security_group.deny_all.name]
+  iam_instance_profile = data.terraform_remote_state.devops_server_instance_profile.outputs.id
+  security_groups = [aws_security_group.devops_server.name]
   user_data       = data.template_file.init.rendered
 }
 

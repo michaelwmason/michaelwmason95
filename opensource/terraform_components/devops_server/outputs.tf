@@ -3,9 +3,9 @@ output "ip"  {
 }
 
 output "sg_name" {
-    value = aws_security_group.deny_all.name
+    value = aws_security_group.devops_server.name
 }
 
 output "sg_id" {
-    value = aws_security_group.deny_all.id
+    value = aws_security_group.devops_server.id
 }

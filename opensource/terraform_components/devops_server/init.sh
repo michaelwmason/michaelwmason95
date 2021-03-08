@@ -1,5 +1,6 @@
 #!/bin/bash -x
 sudo apt update
+mkdir ~/dev
 sudo apt install python3.8 -y
 sudo apt install software-properties-common -y
 sudo apt-add-repository --yes --update ppa:ansible/ansible
