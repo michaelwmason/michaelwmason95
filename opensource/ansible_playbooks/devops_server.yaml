@@ -6,8 +6,14 @@
       state: touch
   - name: Enable GO CD Repo
     shell: echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
-  - name: Get GO CD PGP Key
-    shell: curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
+  - name: Add GO CD PGP Key
+    ansible.builtin.apt_key:
+      state: present
+      url: https://download.gocd.org/GOCD-GPG-KEY.asc
+  - name: Update all packages to ensure GO CD can be installed
+    apt:
+      name: "*"
+      state: latest
   - name: Install GO CD Server
     apt:
       name: go-server
