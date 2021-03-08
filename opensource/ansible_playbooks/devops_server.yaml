@@ -4,3 +4,12 @@
     file:
       path: "~/foo.txt"
       state: touch
+  - name: Enable GO CD Repo
+    shell: echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
+  - name: Get GO CD PGP Key
+    shell: curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
+  - name: Install GO CD Server
+    apt:
+      name: go-server
+      state: present
+    become: yes
