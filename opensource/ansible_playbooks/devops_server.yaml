@@ -1,9 +1,5 @@
 - hosts: all
   tasks:
-  - name: Creating an empty file
-    file:
-      path: "~/foo.txt"
-      state: touch
   - name: Enable GO CD Repo
     shell: echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
   - name: Add GO CD PGP Key
