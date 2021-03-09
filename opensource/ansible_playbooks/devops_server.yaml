@@ -1,18 +1,3 @@
 - hosts: all
-  tasks:
-  - name: Enable GO CD Repo
-    shell: echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
-  - name: Add GO CD PGP Key
-    ansible.builtin.apt_key:
-      state: present
-      url: https://download.gocd.org/GOCD-GPG-KEY.asc
-    become: yes
-  - name: Update all packages to ensure GO CD can be installed
-    apt:
-      update_cache: yes
-    become: yes
-  - name: Install GO CD Server
-    apt:
-      name: go-server
-      state: present
-    become: yes
+  roles:
+    - devops
