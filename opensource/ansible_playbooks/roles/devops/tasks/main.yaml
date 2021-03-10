@@ -14,3 +14,8 @@
     name: go-server
     state: present
   become: yes
+- name: Install GO CD Agent
+  apt:
+    name: go-agent
+    state: present
+  become: yes
