@@ -1,0 +1,5 @@
+- name: Install GO CD Server
+  apt:
+    name: go-server
+    state: present
+  become: yes

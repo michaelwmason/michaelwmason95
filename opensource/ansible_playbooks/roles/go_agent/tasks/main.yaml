@@ -1,0 +1,5 @@
+- name: Install GO CD Agent
+  apt:
+    name: go-agent
+    state: present
+  become: yes
