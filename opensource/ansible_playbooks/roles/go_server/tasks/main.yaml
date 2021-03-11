@@ -8,3 +8,5 @@
     state: restarted
     name: go-server
   become: yes
+  # https://stackoverflow.com/questions/43171897/how-to-set-up-gocd-to-handle-private-git-repositories-that-use-ssh-keys-for-auth
+  # For enabling github access
