@@ -7,3 +7,4 @@
   ansible.builtin.systemd:
     state: restarted
     name: go-server
+  become: yes
