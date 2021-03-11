@@ -3,3 +3,7 @@
     name: go-server
     state: present
   become: yes
+- name: Ensure GO CD Server Service is running
+  ansible.builtin.systemd:
+    state: restarted
+    name: go-server
