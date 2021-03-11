@@ -1,4 +1,4 @@
 - hosts: all
   roles:
     - go
-    - go_server
+    - go_agent
