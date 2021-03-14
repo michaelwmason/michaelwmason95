@@ -22,5 +22,5 @@
   become: yes
 - name: Test to see if we can use go cd server information
   ansible.builtin.file:
-    path: ~/{{go_server_info.instances[0].network_interfaces[0].public_ip}}.txt
+    path: ~/{{go_server_info.instances[0].network_interfaces[0].association.public_ip}}.txt
     state: touch
