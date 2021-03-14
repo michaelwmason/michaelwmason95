@@ -1,3 +1,8 @@
+- name: Gather information about Go CD Server 
+  community.aws.ec2_instance_info:
+    filters:
+      tag:Name: GoServer
+  register: go_server_info
 - name: Install Java 11
   apt:
     name: openjdk-11-jre-headless
@@ -13,3 +18,7 @@
     state: restarted
     name: go-agent
   become: yes
+- name: Test to see if we can use go cd server information
+  ansible.builtin.file:
+    path: ~/{{go_server_info.instances[0].network_interfaces[0].public_ip}}.txt
+    state: touch

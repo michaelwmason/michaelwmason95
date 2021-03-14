@@ -69,7 +69,7 @@ resource "aws_security_group" "ci_cd_worker_node" {
     to_port     = 8153
     protocol    = "tcp"
     cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
-    self        = false
+    self        = true
   }
 
   ingress {
