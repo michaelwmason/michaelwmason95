@@ -2,6 +2,7 @@
   community.aws.ec2_instance_info:
     filters:
       tag:Name: GoServer
+      instance-state-name: [ "running" ]
     aws_region: us-east-1
   delegate_to: 127.0.0.1
   register: go_server_info
@@ -19,12 +20,13 @@
   ansible.builtin.file:
     path: /usr/share/go-agent/wrapper-config/wrapper-properties.conf
     state: absent
-- name: Creating a file with content
+- name: Create go agent config
+  become: yes
   copy:
     dest: /usr/share/go-agent/wrapper-config/wrapper-properties.conf
     content: |
       wrapper.app.parameter.100=-serverUrl
-      wrapper.app.parameter.101=http://{{go_server_info.instances[0].network_interfaces[0].association.public_dns_name}}:8153/go
+      wrapper.app.parameter.101=http://{{go_server_info.instances[0].network_interfaces[0].association.public_ip}}:8153/go
 - name: Ensure GO CD Agent Service is running
   ansible.builtin.systemd:
     state: restarted
