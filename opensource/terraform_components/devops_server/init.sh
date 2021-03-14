@@ -7,6 +7,7 @@ sudo apt install ansible -y
 sudo apt install git-all -y
 sudo apt install python3-pip -y
 pip3 install boto3
+apt install python3-boto3 -y
 ansible-galaxy collection install amazon.aws
 ansible-galaxy collection install community.aws
 echo "Git credentials need to be added manually"
