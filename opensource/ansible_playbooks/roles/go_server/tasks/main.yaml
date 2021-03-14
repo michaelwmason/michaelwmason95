@@ -3,6 +3,11 @@
     name: go-server
     state: present
   become: yes
+- name: Stop Go CD Server until after config changes are done
+  ansible.builtin.systemd:
+    state: stopped
+    name: go-server
+  become: yes
 - name: Copy Github private key
   ansible.builtin.copy:
     src: ~/.sssh/id_ed25519
