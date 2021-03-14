@@ -82,7 +82,7 @@ data "template_file" "init" {
 
 resource "aws_instance" "ci_cd_lead_node" {
   ami           = "ami-042e8287309f5df03"
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
   key_name      = "ansible_server"
   tags = {
     Name = "GoServer"
@@ -90,4 +90,3 @@ resource "aws_instance" "ci_cd_lead_node" {
   security_groups = [aws_security_group.ci_cd_lead_node.name]
   user_data       = data.template_file.init.rendered
 }
-
