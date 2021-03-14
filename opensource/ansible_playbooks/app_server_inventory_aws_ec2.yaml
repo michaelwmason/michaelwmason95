@@ -4,3 +4,4 @@ regions:
   - us-east-2
 filters:
   tag:Name: AppServer
+  instance-state-name: [ "running" ]
