@@ -95,6 +95,14 @@ resource "aws_security_group" "ci_cd_worker_node" {
   }
 }
 
+resource "aws_security_group_rule" "go_server_from_go_agent" {
+  type                     = "ingress"
+  from_port                = 8153
+  to_port                  = 8153
+  protocol                 = "tcp"
+  security_group_id        = data.terraform_remote_state.ci_cd_leader_sg.outputs.sg_id
+  source_security_group_id = aws_security_group.ci_cd_worker_node.id
+}
 
 data "template_file" "init" {
   template = file("${path.cwd}/init.sh")

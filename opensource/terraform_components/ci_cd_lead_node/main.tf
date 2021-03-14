@@ -37,30 +37,30 @@ locals {
 }
 
 resource "aws_security_group" "ci_cd_lead_node" {
-  name        = "ci_cd_lead_node"
+  name = "ci_cd_lead_node"
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
-    self = false
+    self        = false
   }
 
-   ingress {
+  ingress {
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"
     security_groups = [data.terraform_remote_state.devops_server_sg.outputs.sg_id]
   }
 
-   ingress {
-     description = "GO CD dashboard"
+  ingress {
+    description = "GO CD dashboard"
     from_port   = 8153
     to_port     = 8153
     protocol    = "tcp"
     cidr_blocks = ["${local.ifconfig_co_json.ip}/32"]
-    self = false
+    self        = false
   }
 
   egress {
