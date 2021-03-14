@@ -3,6 +3,14 @@
     name: go-server
     state: present
   become: yes
+- name: Copy Github private key
+  ansible.builtin.copy:
+    src: ~/.sssh/id_ed25519
+    dest: ~/.sssh/id_ed25519
+- name: Copy Github public key
+  ansible.builtin.copy:
+    src: ~/.sssh/id_ed25519.pub
+    dest: ~/.sssh/id_ed25519.pub
 - name: Ensure GO CD Server Service is running
   ansible.builtin.systemd:
     state: restarted
