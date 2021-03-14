@@ -2,6 +2,8 @@
   community.aws.ec2_instance_info:
     filters:
       tag:Name: GoServer
+    aws_region: us-east-1
+  delegate_to: 127.0.0.1
   register: go_server_info
 - name: Install Java 11
   apt:
