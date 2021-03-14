@@ -15,12 +15,18 @@
     name: go-agent
     state: present
   become: yes
+- name: Remove default go agent config
+  ansible.builtin.file:
+    path: /usr/share/go-agent/wrapper-config/wrapper-properties.conf
+    state: absent
+- name: Creating a file with content
+  copy:
+    dest: /usr/share/go-agent/wrapper-config/wrapper-properties.conf
+    content: |
+      wrapper.app.parameter.100=-serverUrl
+      wrapper.app.parameter.101=http://{{go_server_info.instances[0].network_interfaces[0].association.public_dns_name}}:8153/go
 - name: Ensure GO CD Agent Service is running
   ansible.builtin.systemd:
     state: restarted
     name: go-agent
   become: yes
-- name: Test to see if we can use go cd server information
-  ansible.builtin.file:
-    path: ~/{{go_server_info.instances[0].network_interfaces[0].association.public_ip}}.txt
-    state: touch
