@@ -8,17 +8,24 @@
     name: go-server
     state: present
   become: yes
+- name: Get stats of a file
+  become: yes
+  become_user: go
+  stat:
+    path: ~/.ssh/id_ed25519
+  register: existing_github_keys
 - name: Create new github ssh keys
   become: yes
   become_user: go
   shell: ssh-keygen -t ed25519 -C "michaelwmason95@gmail.com" -P "" -f ~/.ssh/id_ed25519
+  when: existing_github_keys.stat.exists == False
 - name: Add Github keys to ssh agent
   shell: |
     eval `ssh-agent -s`
     ssh-add ~/.ssh/id_ed25519
   become: yes 
   become_user: go
-
+  when: existing_github_keys.stat.exists == False
 - name: Ensure GO CD Server Service is running
   ansible.builtin.systemd:
     state: restarted
