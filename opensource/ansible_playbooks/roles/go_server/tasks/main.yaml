@@ -1,3 +1,8 @@
+- name: Install acl
+  apt:
+    name: acl
+    state: present
+  become: yes
 - name: Install GO CD Server
   apt:
     name: go-server
