@@ -3,18 +3,10 @@
     name: go-server
     state: present
   become: yes
-- name: Copy Github private key
-  ansible.builtin.copy:
-    src: ~/.ssh/id_ed25519
-    dest: ~/.ssh/id_ed25519
-  become: yes 
+- name: Create new github ssh keys
+  become: yes
   become_user: go
-- name: Copy Github public key
-  ansible.builtin.copy:
-    src: ~/.ssh/id_ed25519.pub
-    dest: ~/.ssh/id_ed25519.pub
-  become: yes 
-  become_user: go
+  shell: ssh-keygen -t ed25519 -C "michaelwmason95@gmail.com" -P "" -f ~/.ssh/id_ed25519
 - name: Add Github keys to ssh agent
   shell: |
     eval `ssh-agent -s`
