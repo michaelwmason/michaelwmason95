@@ -18,14 +18,11 @@
     ssh-add ~/.ssh/id_ed25519
   become: yes 
   become_user: go
-- name: Contact Github to finalize authentication
-  become: yes
-  become_user: go
-  shell: ssh -T git@github.com -o StrictHostKeyChecking=no
+
 - name: Ensure GO CD Server Service is running
   ansible.builtin.systemd:
     state: restarted
     name: go-server
   become: yes
-  # https://stackoverflow.com/questions/43171897/how-to-set-up-gocd-to-handle-private-git-repositories-that-use-ssh-keys-for-auth
-  # For enabling github access
+ ## As the go user you have to manually run `ssh -T git@github.com` after adding the public key
+ ## to Github. I cannot figure out a way to get this more automated.
