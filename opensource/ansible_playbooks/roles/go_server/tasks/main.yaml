@@ -18,6 +18,10 @@
     ssh-add ~/.ssh/id_ed25519
   become: yes 
   become_user: go
+- name: Contact Github to finalize authentication
+  become: yes
+  become_user: go
+  shell: ssh -T git@github.com -o StrictHostKeyChecking=no
 - name: Ensure GO CD Server Service is running
   ansible.builtin.systemd:
     state: restarted
