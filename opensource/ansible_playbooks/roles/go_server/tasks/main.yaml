@@ -31,5 +31,5 @@
     state: restarted
     name: go-server
   become: yes
- ## As the go user you have to manually run `ssh -T git@github.com` after adding the public key
+ ## As the go user you have to manually run `sudo su - go; ssh -T git@github.com` after adding the public key
  ## to Github. I cannot figure out a way to get this more automated.
