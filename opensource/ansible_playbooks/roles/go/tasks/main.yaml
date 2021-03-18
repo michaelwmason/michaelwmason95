@@ -9,3 +9,8 @@
   apt:
     update_cache: yes
   become: yes
+- name: Install acl
+  apt:
+    name: acl
+    state: present
+  become: yes

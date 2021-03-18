@@ -6,14 +6,19 @@
     aws_region: us-east-1
   delegate_to: 127.0.0.1
   register: go_server_info
-- name: Install acl
-  apt:
-    name: acl
-    state: present
-  become: yes
 - name: Install Java 11
   apt:
     name: openjdk-11-jre-headless
+    state: present
+  become: yes
+- name: Install NodeJs
+  apt:
+    name: nodejs
+    state: present
+  become: yes
+- name: Install NPM
+  apt:
+    name: npm
     state: present
   become: yes
 - name: Install GO CD Agent
@@ -32,24 +37,6 @@
     content: |
       wrapper.app.parameter.100=-serverUrl
       wrapper.app.parameter.101=http://{{go_server_info.instances[0].network_interfaces[0].association.public_dns_name}}:8153/go
-- name: Get stats of ssh key
-  become: yes
-  become_user: go
-  stat:
-    path: ~/.ssh/id_ed25519
-  register: existing_github_keys
-- name: Create new github ssh keys
-  become: yes
-  become_user: go
-  shell: ssh-keygen -t ed25519 -C "michaelwmason95@gmail.com" -P "" -f ~/.ssh/id_ed25519
-  when: existing_github_keys.stat.exists == False
-- name: Add Github keys to ssh agent
-  shell: |
-    eval `ssh-agent -s`
-    ssh-add ~/.ssh/id_ed25519
-  become: yes 
-  become_user: go
-  when: existing_github_keys.stat.exists == False
 - name: Ensure GO CD Agent Service is running
   ansible.builtin.systemd:
     state: restarted
