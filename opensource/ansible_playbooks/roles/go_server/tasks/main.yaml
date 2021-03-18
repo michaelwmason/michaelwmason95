@@ -8,7 +8,7 @@
     name: go-server
     state: present
   become: yes
-- name: Get stats of a file
+- name: Get stats of ssh key
   become: yes
   become_user: go
   stat:
