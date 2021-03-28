@@ -1,5 +1,5 @@
 - hosts: all
   roles:
     - go
-    - github_ssh_keys
     - go_agent
+    - github_ssh_keys
