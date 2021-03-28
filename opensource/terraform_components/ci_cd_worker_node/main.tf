@@ -110,7 +110,7 @@ data "template_file" "init" {
 
 resource "aws_instance" "ci_cd_worker_node" {
   ami           = "ami-042e8287309f5df03"
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
   key_name      = "ansible_server"
   tags = {
     Name = "GoAgent"
