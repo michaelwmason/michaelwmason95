@@ -6,14 +6,14 @@ import { environment } from 'src/environments/environment'
 
 @Injectable()
 export class EmailService {
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  sendEmail(
-    emailAddress: string,
-    subject: string,
-    message: string
-  ): Observable<Email> {
-    const email = new Email(emailAddress, subject, message)
-    return this.http.post<Email>(`${environment.baseUrl}/email`, email)
-  }
+    sendEmail(
+        emailAddress: string,
+        subject: string,
+        message: string
+    ): Observable<Email> {
+        const email = new Email(emailAddress, subject, message)
+        return this.http.post<Email>(`${environment.baseUrl}/email`, email)
+    }
 }

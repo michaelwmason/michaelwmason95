@@ -1,24 +1,24 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-  <div class="mountains" fxFlex fxLayout="row" fxLayoutAlign="center center">
-    <div fxFlex fxLayout="column" fxLayoutAlign="center center">
-      <p class="header">Michael Mason</p>
-      <img class="favicon" src="favicon.ico" />
+    <div class="mountains" fxFlex fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <p class="header">Michael Mason</p>
+            <img class="favicon" src="favicon.ico" />
+        </div>
     </div>
-  </div>
-  <h3 fxFlex>Message Me</h3>
-  <mat-form-field>
-    <mat-label>Email Address</mat-label>
-    <input fxFlex matInput [formControl]="emailAddress" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Subject</mat-label>
-    <input fxFlex matInput [formControl]="subject" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Message</mat-label>
-    <textarea fxFlex matInput [formControl]="message"></textarea>
-  </mat-form-field>
-  <button mat-icon-button color="primary" (click)="email()">
-    <mat-icon>email</mat-icon>
-  </button>
+    <h3 fxFlex>Message Me</h3>
+    <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <input fxFlex matInput [formControl]="emailAddress" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Subject</mat-label>
+        <input fxFlex matInput [formControl]="subject" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Message</mat-label>
+        <textarea fxFlex matInput [formControl]="message"></textarea>
+    </mat-form-field>
+    <button mat-icon-button color="primary" (click)="email()">
+        <mat-icon>email</mat-icon>
+    </button>
 </div>
