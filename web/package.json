@@ -9,8 +9,8 @@
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix true",
-    "style": "prettier --check \"src/**/*\"",
-    "style:fix": "prettier --write \"src/app/**/*\"",
+    "style": "prettier --check \"src/**/*.{ts,html}\"",
+    "style:fix": "prettier --write \"src/**/*.{ts,html}\"",
     "e2e": "ng e2e"
   },
   "private": true,
