@@ -81,6 +81,13 @@ resource "aws_instance" "devops_server" {
   tags = {
     Name = "DevOpsServer"
   }
+
+  
+  lifecycle {
+    ignore_changes = [
+      user_data
+    ]
+  }
   iam_instance_profile = data.terraform_remote_state.devops_server_instance_profile.outputs.id
   security_groups      = [aws_security_group.devops_server.name]
   user_data            = data.template_file.init.rendered
