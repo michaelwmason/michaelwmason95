@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { EmailService } from './services/email.service/email.service';
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { Subscription } from 'rxjs'
+import { EmailService } from './services/email.service/email.service'
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,8 @@ import { EmailService } from './services/email.service/email.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  form: FormGroup;
-  subs: Subscription[] = [];
+  form: FormGroup
+  subs: Subscription[] = []
   constructor(
     private formBuilder: FormBuilder,
     private emailService: EmailService
@@ -21,31 +21,31 @@ export class AppComponent implements OnInit, OnDestroy {
       emailAddress: [],
       subject: [],
       message: [],
-    });
+    })
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((s) => s.unsubscribe());
+    this.subs.forEach((s) => s.unsubscribe())
   }
 
   email(): void {
-    const emailAddress = this.form.get('emailAddress').value;
-    const subject = this.form.get('subject').value;
-    const message = this.form.get('message').value;
+    const emailAddress = this.form.get('emailAddress').value
+    const subject = this.form.get('subject').value
+    const message = this.form.get('message').value
     this.subs.push(
       this.emailService.sendEmail(emailAddress, subject, message).subscribe()
-    );
+    )
   }
 
   get emailAddress(): FormControl {
-    return this.form.get('emailAddress') as FormControl;
+    return this.form.get('emailAddress') as FormControl
   }
 
   get subject(): FormControl {
-    return this.form.get('subject') as FormControl;
+    return this.form.get('subject') as FormControl
   }
 
   get message(): FormControl {
-    return this.form.get('message') as FormControl;
+    return this.form.get('message') as FormControl
   }
 }
