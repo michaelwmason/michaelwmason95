@@ -26,3 +26,24 @@
 - name: Add Docker’s official GPG key
   shell: |
      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+- name: Setup repository
+  shell: |
+    echo \
+    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+    state: present
+  become: yes
+- name: Install docker-ce-cli
+  apt:
+    name: docker-ce-cli
+    state: present
+  become: yes
+- name: Install containerd.io
+  apt:
+    name: containerd.io
+    state: present
+  become: yes
+   
