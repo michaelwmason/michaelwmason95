@@ -23,9 +23,15 @@
     name: lsb-release
     state: present
   become: yes
+- name: Get stats of docker archive key
+  become: yes
+  stat:
+    path: /usr/share/keyrings/docker-archive-keyring.gpg
+  register: existing_docker_key
 - name: Add Docker’s official GPG key
   shell: |
      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  when: existing_docker_key.stat.exists == False
 - name: Setup repository
   shell: |
     echo \
