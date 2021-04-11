@@ -1,0 +1,28 @@
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+  become: yes
+- name: Install ca-certificates
+  apt:
+    name: ca-certificates
+    state: present
+  become: yes
+- name: Install curl
+  apt:
+    name: curl
+    state: present
+  become: yes
+- name: Install gnupg
+  apt:
+    name: gnupg
+    state: present
+  become: yes
+- name: Install lsb-release
+  apt:
+    name: lsb-release
+    state: present
+  become: yes
+- name: Add Docker’s official GPG key
+  shell: |
+     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
