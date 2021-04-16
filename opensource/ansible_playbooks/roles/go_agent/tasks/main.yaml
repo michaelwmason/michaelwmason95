@@ -47,4 +47,4 @@
   copy:
     dest: /etc/sudoers.d/go
     content: |
-      go ALL = NOPASSWD: /usr/bin/docker
+      go ALL = NOPASSWD: /usr/bin/docker, chown
