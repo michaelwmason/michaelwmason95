@@ -20,7 +20,7 @@
     group=root
     mode=0755
   become: yes
-- name: Ensure GO CD Agent Service is running
+- name: Stop apache2 service
   ansible.builtin.systemd:
     state: stopped
     name: apache2
