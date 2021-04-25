@@ -37,7 +37,7 @@ locals {
 }
 
 resource "aws_security_group" "ha_proxy_server_sg" {
-  name = "app_server"
+  name = "ha_proxy"
 
   ingress {
     from_port       = 22

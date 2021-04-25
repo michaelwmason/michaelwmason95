@@ -95,7 +95,7 @@ resource "aws_security_group" "app_server" {
 
 
 resource "aws_instance" "app_server" {
-  count = 2
+  count = 1
   ami           = "ami-042e8287309f5df03"
   instance_type = "t2.micro"
   key_name      = "ansible_server"
