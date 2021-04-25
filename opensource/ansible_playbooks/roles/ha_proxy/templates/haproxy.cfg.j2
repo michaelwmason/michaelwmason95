@@ -44,6 +44,6 @@ backend appservers
         mode http
         balance roundrobin # defines the roundrobin load balancer scheduling algorithm
         option httpchk HEAD / HTTP/1.1\r\nHost:\ localhost
-        {% for item in items %}
+        {% for item in app_server_info.instances %}
             server nginx-web{{ loop.index }} { ip_address }:80 check # IP address of the backend server
         {% endfor %}
