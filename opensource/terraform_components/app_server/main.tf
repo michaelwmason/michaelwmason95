@@ -94,11 +94,8 @@ resource "aws_security_group" "app_server" {
 }
 
 
-data "template_file" "init" {
-  template = file("${path.cwd}/init.sh")
-}
-
 resource "aws_instance" "app_server" {
+  count = 2
   ami           = "ami-042e8287309f5df03"
   instance_type = "t2.micro"
   key_name      = "ansible_server"
@@ -106,5 +103,5 @@ resource "aws_instance" "app_server" {
     Name = "AppServer"
   }
   security_groups = [aws_security_group.app_server.name]
-  user_data       = data.template_file.init.rendered
+  user_data       = templatefile("${path.cwd}/init.sh", {count = count.index})
 }
