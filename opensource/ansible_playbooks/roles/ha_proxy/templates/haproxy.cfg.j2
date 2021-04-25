@@ -2,7 +2,7 @@ global
         log /dev/log    local0
         log /dev/log    local1 notice
         chroot /var/lib/haproxy
-        stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+        stats socket /var/lib/haproxy/stats
         stats timeout 30s
         user haproxy
         group haproxy
@@ -32,3 +32,18 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+
+frontend haproxy_balancer # define the name of the frontend.
+        bind 192.168.0.10:80 # IP address of HAProxy server
+        option http-server-close
+        option forwardfor
+        stats uri /haproxy?stats # Specify the HAProxy status page.
+        default_backend appservers
+
+backend appservers
+        mode http
+        balance roundrobin # defines the roundrobin load balancer scheduling algorithm
+        option httpchk HEAD / HTTP/1.1\r\nHost:\ localhost
+        {% for item in items %}
+            server nginx-web{{ loop.index }} { ip_address }:80 check # IP address of the backend server
+        {% endfor %}

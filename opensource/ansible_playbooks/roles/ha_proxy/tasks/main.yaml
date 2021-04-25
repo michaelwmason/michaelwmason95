@@ -1,5 +1,22 @@
+- name: Gather information App Servers 
+  community.aws.ec2_instance_info:
+    filters:
+      tag:Name: AppServer
+      instance-state-name: [ "running" ]
+    aws_region: us-east-1
+  delegate_to: 127.0.0.1
+  register: app_server_info
 - name: Install HA Proxy
   apt:
     name: haproxy
     state: present
+  become: yes
+- name: Lay Down HA Proxy Configuration
+  template:
+    src=templates/haproxy.conf.j2
+    dest=/etc/haproxy/haproxy.cfg
+    owner=root
+    group=root
+    mode=0755
+  with_items: app_server_info.instances
   become: yes
