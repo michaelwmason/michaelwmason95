@@ -12,6 +12,7 @@ import { EmailService } from './services/email.service/email.service'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatDividerModule } from '@angular/material/divider'
 
 @NgModule({
     declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
         ReactiveFormsModule,
         MatInputModule,
         MatFormFieldModule,
+        MatDividerModule,
     ],
     providers: [EmailService],
     bootstrap: [AppComponent],

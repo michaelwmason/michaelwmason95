@@ -1,24 +1,66 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-    <div class="mountains" fxFlex fxLayout="row" fxLayoutAlign="center center">
-        <div fxFlex fxLayout="column" fxLayoutAlign="center center">
-            <p class="header">Michael Mason</p>
-            <img class="favicon" src="favicon.ico" />
+<div fxLayout="row" fxLayoutAlign="stretch stretch" class="container">
+    <div
+        fxFlex="20%"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        class="side-nav"
+    >
+        <img fxFlex="0 0 0" class="favicon" src="favicon.ico" />
+        <p fxFlex="0 0 0" class="header">Michael Mason</p>
+        <mat-divider fxFlex="0 0 0"></mat-divider>
+        <div
+            fxFlex
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="option"
+            [routerLink]="['/user/bob']"
+        >
+            <mat-icon fxFlex="0 0 0" aria-hidden="false">home</mat-icon>
+            <p fxFlex="0 0 0">Home</p>
+        </div>
+        <div
+            fxFlex
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="option"
+            [routerLink]="['/user/bob']"
+        >
+            <mat-icon fxFlex="0 0 0" aria-hidden="false">person</mat-icon>
+            <p fxFlex="0 0 0">About</p>
+        </div>
+        <div
+            fxFlex
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="option"
+            [routerLink]="['/user/bob']"
+        >
+            <mat-icon fxFlex="0 0 0" aria-hidden="false">code</mat-icon>
+            <p fxFlex="0 0 0">Skills and Achievements</p>
+        </div>
+
+        <div
+            fxFlex
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="option"
+            [routerLink]="['/user/bob']"
+        >
+            <mat-icon fxFlex="0 0 0" aria-hidden="false">laptop</mat-icon>
+            <p fxFlex="0 0 0">Personal Projects</p>
+        </div>
+        <div
+            fxFlex
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="option"
+            [routerLink]="['/user/bob']"
+        >
+            <mat-icon fxFlex="0 0 0" aria-hidden="false">mail</mat-icon>
+            <p fxFlex="0 0 0">Contact Me</p>
         </div>
     </div>
-    <h3 fxFlex>Message Me</h3>
-    <mat-form-field>
-        <mat-label>Email Address</mat-label>
-        <input fxFlex matInput [formControl]="emailAddress" />
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Subject</mat-label>
-        <input fxFlex matInput [formControl]="subject" />
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Message</mat-label>
-        <textarea fxFlex matInput [formControl]="message"></textarea>
-    </mat-form-field>
-    <button mat-icon-button color="primary" (click)="email()">
-        <mat-icon>email</mat-icon>
-    </button>
+    <div fxFlex="80%">
+        <p>more stuff</p>
+    </div>
 </div>
