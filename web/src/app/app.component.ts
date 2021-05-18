@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { Subscription } from 'rxjs'
-import { EmailService } from './services/email.service/email.service'
+import { ActivatedRoute } from '@angular/router'
+import { Observable, Subscription } from 'rxjs'
+import { map } from 'rxjs/operators'
+import { Location } from './models/location'
+import { NavigationService } from './services/navigation/navigation.service'
 
 @Component({
     selector: 'app-root',
@@ -11,43 +14,11 @@ import { EmailService } from './services/email.service/email.service'
 export class AppComponent implements OnInit, OnDestroy {
     form: FormGroup
     subs: Subscription[] = []
-    constructor(
-        private formBuilder: FormBuilder,
-        private emailService: EmailService
-    ) {}
+    constructor() {}
 
-    ngOnInit(): void {
-        this.form = this.formBuilder.group({
-            emailAddress: [],
-            subject: [],
-            message: [],
-        })
-    }
+    ngOnInit(): void {}
 
     ngOnDestroy(): void {
         this.subs.forEach((s) => s.unsubscribe())
-    }
-
-    email(): void {
-        const emailAddress = this.form.get('emailAddress').value
-        const subject = this.form.get('subject').value
-        const message = this.form.get('message').value
-        this.subs.push(
-            this.emailService
-                .sendEmail(emailAddress, subject, message)
-                .subscribe()
-        )
-    }
-
-    get emailAddress(): FormControl {
-        return this.form.get('emailAddress') as FormControl
-    }
-
-    get subject(): FormControl {
-        return this.form.get('subject') as FormControl
-    }
-
-    get message(): FormControl {
-        return this.form.get('message') as FormControl
     }
 }

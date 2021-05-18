@@ -8,14 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { HttpClientModule } from '@angular/common/http'
-import { EmailService } from './services/email.service/email.service'
+import { EmailService } from './services/email/email.service'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatDividerModule } from '@angular/material/divider'
+import { NavigationService } from './services/navigation/navigation.service'
+import { AboutMeComponent } from './components/about-me/about-me.component'
+import { HomeComponent } from './components/home/home.component'
+import { NavigationComponent } from './components/navigation/navigation.component'
+import { SkillsAndAchievementsComponent } from './components/skills/skills-and-achievements.component'
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        AboutMeComponent,
+        HomeComponent,
+        NavigationComponent,
+        SkillsAndAchievementsComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -29,7 +40,7 @@ import { MatDividerModule } from '@angular/material/divider'
         MatFormFieldModule,
         MatDividerModule,
     ],
-    providers: [EmailService],
+    providers: [EmailService, NavigationService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
