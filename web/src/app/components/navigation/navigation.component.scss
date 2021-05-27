@@ -4,17 +4,20 @@
 
 .favicon {
     margin-top: 5px;
-    max-height: 150px;
     max-width: 150px;
+    height: auto;
 }
 
 .side-nav {
     outline: 2px;
     outline-style: solid;
-    width: 100%;
+    width: fit-content;
+    max-width: 150px;
     height: 100%;
-    margin-top: 0.5%;
     background-color: rgba(63, 81, 181, 0.781);
+    position: fixed;
+    // z-index: 1;
+    overflow-x: hidden;
 }
 
 mat-divider {
