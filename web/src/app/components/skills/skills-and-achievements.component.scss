@@ -1,0 +1,20 @@
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('./../../../assets/river.jpg');
+    background-size: cover;
+}
+
+.title-text {
+    text-align: center;
+    color: white;
+    font-size: 70px;
+}
+
+img {
+    margin-top: 10px;
+}
