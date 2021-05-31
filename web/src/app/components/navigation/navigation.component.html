@@ -48,9 +48,10 @@
         fxLayout="row"
         fxLayoutAlign="start center"
         class="option"
-        [routerLink]="['/user/bob']"
+        [routerLink]="['/more-info']"
+        [ngClass]="(isSelected('more-info') | async) ? 'selected' : ''"
     >
         <mat-icon fxFlex="0 0 0" aria-hidden="false">mail</mat-icon>
-        <p fxFlex="0 0 0">Contact Me</p>
+        <p fxFlex="0 0 0">More Info</p>
     </div>
 </div>

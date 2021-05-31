@@ -18,6 +18,7 @@ import { AboutMeComponent } from './components/about-me/about-me.component'
 import { HomeComponent } from './components/home/home.component'
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { SkillsAndAchievementsComponent } from './components/skills/skills-and-achievements.component'
+import { MoreInfoComponent } from './components/more-info/more-info.component'
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { SkillsAndAchievementsComponent } from './components/skills/skills-and-a
         HomeComponent,
         NavigationComponent,
         SkillsAndAchievementsComponent,
+        MoreInfoComponent,
     ],
     imports: [
         BrowserModule,
