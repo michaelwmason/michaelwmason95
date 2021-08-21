@@ -19,7 +19,9 @@ import { HomeComponent } from './components/home/home.component'
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { SkillsAndAchievementsComponent } from './components/skills/skills-and-achievements.component'
 import { MoreInfoComponent } from './components/more-info/more-info.component'
-
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatListModule } from '@angular/material/list'
 @NgModule({
     declarations: [
         AppComponent,
@@ -41,6 +43,9 @@ import { MoreInfoComponent } from './components/more-info/more-info.component'
         MatInputModule,
         MatFormFieldModule,
         MatDividerModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
     ],
     providers: [EmailService, NavigationService],
     bootstrap: [AppComponent],

@@ -1,3 +1,46 @@
-.container {
-    height: 100%;
+.ten {
+    max-height: 10vw !important;
+    min-height: 10vw !important;
+    max-width: 10vw !important;
+    min-width: 10vw !important;
+}
+
+.body {
+    margin-top: 2vh;
+    margin-bottom: 0vh;
+    font-size: 2.4vmin;
+}
+
+.margin {
+    margin-left: 1vmin;
+    margin-right: 1vmin;
+}
+
+.header {
+    width: 100vw;
+    height: 50vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('./../assets/river.jpg');
+    background-size: cover;
+}
+
+.title-text {
+    color: white;
+    font-size: 12vmin;
+}
+
+.body-text {
+    color: white;
+    font-size: 5vmin;
+    text-align: center;
+    margin-left: 5vmin;
+    margin-right: 5vmin;
+}
+
+a {
+    color: rgba(63, 81, 181, 0.781);
+}
+
+.center-text {
+    text-align: center;
 }
