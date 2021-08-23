@@ -110,7 +110,7 @@
             </h2>
             <div
                 class="body"
-                fxFlex="30vh"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '24vh' : '30vh'"
                 fxLayout="row"
                 fxLayout.xs="column"
                 fxLayoutGap="1vmin"
@@ -147,20 +147,28 @@
                     fxLayoutAlign="space-around center"
                 >
                     <img
-                        fxFlex="9vw"
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '9vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'ten'
+                        "
                         src="./../../../assets/dhs.png"
-                        class="ten"
                     />
                     <img
-                        fxFlex="9vw"
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '9vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'ten'
+                        "
                         src="./../assets/virginia-tech-hokies-logo-png-transparent.png"
-                        class="ten"
                     />
                 </div>
             </div>
             <div
                 class="body"
-                fxFlex="25vh"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '20vh' : '25vh'"
                 fxLayout="row"
                 fxLayout.xs="column"
                 fxLayoutAlign="start center"
@@ -171,9 +179,11 @@
                     fxLayoutAlign="space-around center"
                 >
                     <img
-                        fxFlex="10vw"
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '15vh' : '10vw'
+                        "
+                        class="ten"
                         src="./../assets/greece.JPG"
-                        class="eight"
                     />
                 </div>
                 <div
@@ -207,17 +217,19 @@
             </h2>
             <div
                 class="body"
-                fxFlex="25vh"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '27vh' : '25vh'"
                 fxLayout="row"
                 fxLayout.xs="column"
                 fxLayoutAlign="start center"
             >
                 <div
-                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '10vh' : '65vw'"
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '12vh' : '65vw'"
                     fxLayout="column"
                 >
                     <div
-                        fxflex
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '25vh' : '40vw'
+                        "
                         [ngClass]="
                             (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
                         "
@@ -235,22 +247,46 @@
                     </div>
                 </div>
                 <div
-                    fxFlex="22vw"
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '15vh' : '22vw'"
                     fxLayout="row"
                     fxLayoutAlign="space-around center"
                 >
                     <img
-                        fxFlex="4vw"
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
                         src="./../assets/angular.png"
-                        class="four"
                     />
-                    <img fxFlex="4vw" src="./../assets/java.png" class="four" />
                     <img
-                        fxFlex="4vw"
-                        src="./../assets/postgresql.png"
-                        class="four"
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/java.png"
                     />
-                    <img fxFlex="4vw" src="./../assets/aws.png" class="four" />
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/postgresql.png"
+                    />
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/aws.png"
+                    />
                 </div>
             </div>
             <h2
@@ -263,7 +299,7 @@
             </h2>
             <div
                 class="body"
-                fxFlex="25vh"
+                fxFlex="5vh"
                 fxLayout="row"
                 fxLayout.xs="column"
                 fxLayoutAlign="start center"
@@ -292,12 +328,15 @@
             </h2>
             <div
                 class="body"
-                fxFlex="25vh"
+                fxFlex="10vh"
                 fxLayout="row"
                 fxLayout.xs="column"
                 fxLayoutAlign="start center"
             >
-                <div fxFlex="88vw" fxLayout="column">
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '20vh' : '88vw'"
+                    fxLayout="column"
+                >
                     <div fxflex class="center-text">
                         Let's chat! If you want to hear more about my skills, my
                         personal projects, or anything else, just send me an

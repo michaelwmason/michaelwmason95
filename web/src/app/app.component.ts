@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core'
 import { MediaObserver } from '@angular/flex-layout'
 import { FormGroup } from '@angular/forms'
 import { Observable, Subscription } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, tap } from 'rxjs/operators'
 
 @Component({
     selector: 'app-root',
@@ -17,9 +17,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor(private mediaObserver: MediaObserver) {}
 
     ngOnInit(): void {
-        this.mediaAlias$ = this.mediaObserver
-            .asObservable()
-            .pipe(map((media) => media[0].mqAlias))
+        this.mediaAlias$ = this.mediaObserver.asObservable().pipe(
+            map((media) => media[0].mqAlias),
+            tap(console.log)
+        )
     }
 
     ngAfterViewInit(): void {}
