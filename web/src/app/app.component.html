@@ -117,7 +117,7 @@
                 fxLayoutAlign="start center"
             >
                 <div
-                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '10vh' : '65vw'"
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '18vh' : '65vw'"
                     fxLayout="column"
                 >
                     <div
@@ -310,14 +310,33 @@
                 fxLayout="row"
                 fxLayoutAlign="space-around center"
             >
-                <img fxFlex="8vw" src="./../assets/email.png" class="eight" />
-                <img fxFlex="8vw" src="./../assets/github.png" class="eight" />
-                <img fxFlex="8vw" src="./../assets/resume.png" class="eight" />
-                <img
+                <a fxFlexfxFlex="8vw" href="mailto:michaelwmason95@gmail.com">
+                    <img src="./../assets/email.png" class="eight" />
+                </a>
+                <a
                     fxFlex="8vw"
-                    src="./../assets/linkedin.png"
-                    class="eight"
-                />
+                    href="./../assets/Michael_Mason_Resume.pdf"
+                    target="_blank"
+                    ><img
+                        fxFlex="8vw"
+                        src="./../assets/resume.png"
+                        class="eight"
+                    />
+                </a>
+                <a
+                    fxFlex="8vw"
+                    href="https://github.com/michaelwmason"
+                    target="_blank"
+                >
+                    <img src="./../assets/github.png" class="eight" />
+                </a>
+                <a
+                    fxFlex="8vw"
+                    href="https://www.linkedin.com/in/michael-mason-59713a90/"
+                    target="_blank"
+                >
+                    <img src="./../assets/linkedin.png" class="eight" />
+                </a>
             </div>
         </div>
     </mat-sidenav-content>
