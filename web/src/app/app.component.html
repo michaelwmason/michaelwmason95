@@ -217,37 +217,29 @@
             </h2>
             <div
                 class="body"
-                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '27vh' : '25vh'"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '27vh' : '30vh'"
                 fxLayout="row"
                 fxLayout.xs="column"
                 fxLayoutAlign="start center"
             >
                 <div
-                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '12vh' : '65vw'"
-                    fxLayout="column"
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '12vh' : '55vw'"
+                    [ngClass]="
+                        (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
+                    "
                 >
-                    <div
-                        [fxFlex]="
-                            (mediaAlias$ | async) === 'xs' ? '25vh' : '40vw'
-                        "
-                        [ngClass]="
-                            (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
-                        "
-                    >
-                        I pride myself on being a full stack developer. I enjoy
-                        working with Angular and Java to build cloud native web
-                        apps, but I thrive when acting as a DevOps Engineer and
-                        building cloud infrastructure. On any given day I can be
-                        found building a new user interface, implementing new
-                        API endpoints with Springboot, or using Terraform to
-                        build new AWS infrastructure. With a brackground in
-                        Industrial Engineering, I consider myself a very well
-                        rounded engineer with numerous accoldades and
-                        achievements.
-                    </div>
+                    I pride myself on being a full stack developer. I enjoy
+                    working with Angular and Java to build cloud native web
+                    apps, but I thrive when acting as a DevOps Engineer and
+                    building cloud infrastructure. On any given day I can be
+                    found building a new user interface, implementing new API
+                    endpoints with Springboot, or using Terraform to build new
+                    AWS infrastructure. With a brackground in Industrial
+                    Engineering, I consider myself a very well rounded engineer
+                    with numerous accoldades and achievements.
                 </div>
                 <div
-                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '15vh' : '22vw'"
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '15vh' : '30vw'"
                     fxLayout="row"
                     fxLayoutAlign="space-around center"
                 >
