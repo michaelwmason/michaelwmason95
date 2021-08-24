@@ -1,8 +1,374 @@
-<div fxLayout="row" fxLayoutAlign="stretch stretch" class="container">
-    <div fxFlex="0 1 calc(150px)" style="height: 100%">
-        <app-navigation-component></app-navigation-component>
-    </div>
-    <div fxFlex>
-        <router-outlet></router-outlet>
-    </div>
-</div>
+<mat-sidenav-container class="side-nav-container">
+    <mat-sidenav class="side-nav hide" mode="side" opened
+        ><div
+            fxLayout="column"
+            fxLayoutAlign="space-evenly center"
+            class="full-height"
+        >
+            <img fxFlex="0 0 0" class="favicon" src="favicon.ico" />
+            <mat-divider fxFlex="0 0 0"></mat-divider>
+            <div
+                fxFlex
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                class="option"
+                (click)="nav('home')"
+            >
+                <mat-icon class="icon" fxFlex aria-hidden="false"
+                    >home</mat-icon
+                >
+                <p fxFlex>Home</p>
+            </div>
+            <div
+                fxFlex
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                class="option"
+                (click)="nav('about')"
+            >
+                <mat-icon class="icon" fxFlex aria-hidden="false"
+                    >person</mat-icon
+                >
+                <p fxFlex>About</p>
+            </div>
+            <div
+                fxFlex
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                class="option"
+                (click)="nav('skills')"
+            >
+                <mat-icon class="icon" fxFlex aria-hidden="false"
+                    >code</mat-icon
+                >
+                <p fxFlex>Skills and Achievements</p>
+            </div>
+            <div
+                fxFlex
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                class="option"
+                (click)="nav('projects')"
+            >
+                <mat-icon class="icon" fxFlex aria-hidden="false"
+                    >description</mat-icon
+                >
+                <p fxFlex>Projects</p>
+            </div>
+            <div
+                fxFlex
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                class="option"
+                (click)="nav('contact')"
+            >
+                <mat-icon class="icon" fxFlex aria-hidden="false"
+                    >mail</mat-icon
+                >
+                <p fxFlex>Contact Me</p>
+            </div>
+        </div></mat-sidenav
+    >
+    <mat-sidenav-content
+        [ngClass]="
+            (mediaAlias$ | async) === 'xs' ? 'body-size-xs' : 'body-size'
+        "
+    >
+        <div
+            [ngClass]="(mediaAlias$ | async) === 'xs' ? 'header-xs' : 'header'"
+            fxLayout="column"
+            fxLayoutAlign="center center"
+        >
+            <div
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '20vh' : '45vh'"
+                fxLayout="column"
+                fxLayoutAlign="center center"
+            >
+                <span fxFlex="20%"></span>
+                <span fxFlex="55%" class="header-text">
+                    <div id="home" class="title-text">Hello!</div>
+                    Welcome to my website! My name is Michael Mason and I am a
+                    software developer based out of Raleigh, NC.
+                </span>
+                <span fxFlex="25%"></span>
+            </div>
+        </div>
+
+        <div
+            class="margin"
+            fxLayout="column"
+            fxLayoutAlign="start"
+            fxLayoutGap="2vh"
+        >
+            <h2
+                class="body"
+                [ngClass]="(mediaAlias$ | async) === 'xs' ? 'center-text' : ''"
+                fxFlex="4vh"
+                id="about"
+            >
+                Who is Michael?
+            </h2>
+            <div
+                class="body"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '24vh' : '30vh'"
+                fxLayout="row"
+                fxLayout.xs="column"
+                fxLayoutGap="1vmin"
+                fxLayoutAlign="start center"
+            >
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '18vh' : '65vw'"
+                    fxLayout="column"
+                >
+                    <div
+                        fxflex
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
+                        "
+                    >
+                        My name is Michael Mason, and I am a software developer
+                        based in Raleigh, NC. I have 3 years of experience
+                        consulting for the Federal Government. I am passionate
+                        about modernizing IT systems to increase security,
+                        improve usability, and save money. I have delivered
+                        quality products throughout the Department of Homeland
+                        Security for different agencies.
+                        <br /><br />
+                        I have an academic background in Industrial and Systems
+                        Engineering in which I hold both a Bachelor's and
+                        Master's degree from Virginia Tech. I also hold the AWS
+                        Solutions Architect Associates certification along with
+                        a Six Sigma Greenbelt.
+                    </div>
+                </div>
+                <div
+                    fxFlex="22vw"
+                    fxLayout="row"
+                    fxLayoutAlign="space-around center"
+                >
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '9vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'ten'
+                        "
+                        src="./../../../assets/dhs.png"
+                    />
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '9vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'ten'
+                        "
+                        src="./../assets/virginia-tech-hokies-logo-png-transparent.png"
+                    />
+                </div>
+            </div>
+            <div
+                class="body"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '20vh' : '25vh'"
+                fxLayout="row"
+                fxLayout.xs="column"
+                fxLayoutAlign="start center"
+            >
+                <div
+                    fxFlex="22vw"
+                    fxLayout="row"
+                    fxLayoutAlign="space-around center"
+                >
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '15vh' : '10vw'
+                        "
+                        class="ten"
+                        src="./../assets/greece.JPG"
+                    />
+                </div>
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '10vh' : '65vw'"
+                    fxLayout="column"
+                >
+                    <div
+                        fxflex
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
+                        "
+                    >
+                        In my free time you can often find me listening to an
+                        audiobook or podcast while out for a run or exercising.
+                        I am partial to science fiction and dystopian novels,
+                        but I also enjoy listening to financial and technology
+                        podcasts like Motely Fool Industry Focus and the Offical
+                        AWS Podcast. When I am too tired (or unmotivated) to
+                        exercise, I turn to the trusty TV and watch sports or
+                        Netflixs with my wife.
+                    </div>
+                </div>
+            </div>
+            <h2
+                class="body"
+                [ngClass]="(mediaAlias$ | async) === 'xs' ? 'center-text' : ''"
+                fxFlex="4vh"
+                id="skills"
+            >
+                Skills and Achievements
+            </h2>
+            <div
+                class="body"
+                [fxFlex]="(mediaAlias$ | async) === 'xs' ? '27vh' : '30vh'"
+                fxLayout="row"
+                fxLayout.xs="column"
+                fxLayoutAlign="start center"
+            >
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '12vh' : '55vw'"
+                    [ngClass]="
+                        (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
+                    "
+                >
+                    I pride myself on being a full stack developer. I enjoy
+                    working with Angular and Java to build cloud native web
+                    apps, but I thrive when acting as a DevOps Engineer and
+                    building cloud infrastructure. On any given day I can be
+                    found building a new user interface, implementing new API
+                    endpoints with Springboot, or using Terraform to build new
+                    AWS infrastructure. With a brackground in Industrial
+                    Engineering, I consider myself a very well rounded engineer
+                    with numerous accoldades and achievements.
+                </div>
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '15vh' : '30vw'"
+                    fxLayout="row"
+                    fxLayoutAlign="space-around center"
+                >
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/angular.png"
+                    />
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/java.png"
+                    />
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/postgresql.png"
+                    />
+                    <img
+                        [fxFlex]="
+                            (mediaAlias$ | async) === 'xs' ? '20vw' : '4vw'
+                        "
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'fifteen' : 'four'
+                        "
+                        src="./../assets/aws.png"
+                    />
+                </div>
+            </div>
+            <h2
+                class="body"
+                [ngClass]="(mediaAlias$ | async) === 'xs' ? 'center-text' : ''"
+                fxFlex="4vh"
+                id="projects"
+            >
+                Projects
+            </h2>
+            <div
+                class="body"
+                fxFlex="5vh"
+                fxLayout="row"
+                fxLayout.xs="column"
+                fxLayoutAlign="start center"
+            >
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '10vh' : '65vw'"
+                    fxLayout="column"
+                >
+                    <div
+                        fxflex
+                        [ngClass]="
+                            (mediaAlias$ | async) === 'xs' ? 'center-text' : ''
+                        "
+                    >
+                        Projects coming soon!
+                    </div>
+                </div>
+            </div>
+            <h2
+                class="body"
+                [ngClass]="(mediaAlias$ | async) === 'xs' ? 'center-text' : ''"
+                fxFlex="4vh"
+                id="contact"
+            >
+                Contact Me
+            </h2>
+            <div
+                class="body"
+                fxFlex="10vh"
+                fxLayout="row"
+                fxLayout.xs="column"
+                fxLayoutAlign="start center"
+            >
+                <div
+                    [fxFlex]="(mediaAlias$ | async) === 'xs' ? '20vh' : '88vw'"
+                    fxLayout="column"
+                >
+                    <div fxflex class="center-text">
+                        Let's chat! If you want to hear more about my skills, my
+                        personal projects, or anything else, just send me an
+                        email or check out some of my personal pages.
+                    </div>
+                </div>
+            </div>
+            <div
+                fxFlex="5vw"
+                fxLayout="row"
+                fxLayoutAlign="space-around center"
+            >
+                <a fxFlexfxFlex="8vw" href="mailto:michaelwmason95@gmail.com">
+                    <img src="./../assets/email.png" class="eight" />
+                </a>
+                <a
+                    fxFlex="8vw"
+                    href="./../assets/Michael_Mason_Resume.pdf"
+                    target="_blank"
+                    ><img
+                        fxFlex="8vw"
+                        src="./../assets/resume.png"
+                        class="eight"
+                    />
+                </a>
+                <a
+                    fxFlex="8vw"
+                    href="https://github.com/michaelwmason"
+                    target="_blank"
+                >
+                    <img src="./../assets/github.png" class="eight" />
+                </a>
+                <a
+                    fxFlex="8vw"
+                    href="https://www.linkedin.com/in/michael-mason-59713a90/"
+                    target="_blank"
+                >
+                    <img src="./../assets/linkedin.png" class="eight" />
+                </a>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

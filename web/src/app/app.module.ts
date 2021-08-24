@@ -8,27 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { HttpClientModule } from '@angular/common/http'
-import { EmailService } from './services/email/email.service'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatDividerModule } from '@angular/material/divider'
-import { NavigationService } from './services/navigation/navigation.service'
-import { AboutMeComponent } from './components/about-me/about-me.component'
-import { HomeComponent } from './components/home/home.component'
-import { NavigationComponent } from './components/navigation/navigation.component'
-import { SkillsAndAchievementsComponent } from './components/skills/skills-and-achievements.component'
-import { MoreInfoComponent } from './components/more-info/more-info.component'
-
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatListModule } from '@angular/material/list'
 @NgModule({
-    declarations: [
-        AppComponent,
-        AboutMeComponent,
-        HomeComponent,
-        NavigationComponent,
-        SkillsAndAchievementsComponent,
-        MoreInfoComponent,
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -41,8 +29,11 @@ import { MoreInfoComponent } from './components/more-info/more-info.component'
         MatInputModule,
         MatFormFieldModule,
         MatDividerModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
     ],
-    providers: [EmailService, NavigationService],
+    providers: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
