@@ -15,6 +15,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatListModule } from '@angular/material/list'
+import { MaterialModule } from './modules/material.module'
 @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -22,16 +23,9 @@ import { MatListModule } from '@angular/material/list'
         AppRoutingModule,
         FlexLayoutModule,
         BrowserAnimationsModule,
-        MatIconModule,
         HttpClientModule,
-        MatButtonModule,
         ReactiveFormsModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatDividerModule,
-        MatSidenavModule,
-        MatListModule,
-        MatToolbarModule,
+        MaterialModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

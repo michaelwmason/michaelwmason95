@@ -9,7 +9,7 @@ import { map, tap } from 'rxjs/operators'
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+export class AppComponent implements OnInit, OnDestroy {
     form: FormGroup
     subs: Subscription[] = []
     mediaAlias$: Observable<string>
@@ -17,13 +17,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor(private mediaObserver: MediaObserver) {}
 
     ngOnInit(): void {
-        this.mediaAlias$ = this.mediaObserver.asObservable().pipe(
-            map((media) => media[0].mqAlias),
-            tap(console.log)
-        )
+        this.mediaAlias$ = this.mediaObserver
+            .asObservable()
+            .pipe(map((media) => media[0].mqAlias))
     }
-
-    ngAfterViewInit(): void {}
 
     ngOnDestroy(): void {
         this.subs.forEach((s) => s.unsubscribe())
