@@ -12,7 +12,8 @@
     "lint:fix": "ng lint --fix true",
     "style": "prettier --check \"src/**/*.{ts,html,scss}\"",
     "style:fix": "prettier --write \"src/**/*.{ts,html,scss}\"",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ngcc":" ng ngcc"
   },
   "private": true,
   "dependencies": {
