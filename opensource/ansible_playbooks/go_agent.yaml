@@ -1,6 +1,0 @@
-- hosts: all
-  roles:
-    - go
-    - go_agent
-    - github_ssh_keys
-    - docker

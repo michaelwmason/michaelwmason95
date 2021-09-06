@@ -1,6 +1,0 @@
-- hosts: all
-  roles:
-    - go
-    - go_server
-    - github_ssh_keys
-    

@@ -43,3 +43,32 @@ EOF
     error_document = "index.html"
   }
 }
+
+
+resource "aws_s3_bucket" "wwwhost_bucket" {
+  bucket = "www.michaelwmason95.com"
+  acl    = "public-read"
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::www.michaelwmason95.com/*"
+            ]
+        }
+    ]
+  }
+EOF
+
+  website {
+    index_document = "index.html"
+    error_document = "index.html"
+  }
+}
